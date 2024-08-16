@@ -10,7 +10,7 @@ public class PruebaConnectionBD{
         // Parametros de conexion a la base de datos //
         String usuario = "root"; // Usuario de la base de datos //
         String password = ""; // Contraseña del usuario //
-        String url = "jdbc:mysql://localhost:3306/petparadiseprueba"; // URL de la base de datos //
+        String url = "jdbc:mysql://localhost:3306/petparadise"; // URL de la base de datos //
         Connection connection; // Objeto para manejar la conexion //
         Statement statement; // Objeto para ejecutar consultas SQL //
         ResultSet rs; // Objeto para almacenar el resultado de una consulta SQL //
@@ -29,29 +29,29 @@ public class PruebaConnectionBD{
         try{
 
             // Establecer la conexion a la base de datos //
-            connection =  DriverManager.getConnection(url,usuario, password);
+            connection =  DriverManager.getConnection(url,usuario,password);
 
             // Crear un objeto Statement para ejecutar consultas SQL //
             statement = connection.createStatement();
 
             // Ejecutar una consulta SQL para insertar todos los registros de la tabla 'usuarios' //
             /*statement.executeUpdate("insert into usuarios(codigo_user,nombres,apellidos,fecha_nacimiento,identificacion,sexo,ciudad,email,contraseña,fecha_registro,compras,adopciones) values('','','','','','','','','','','','')");*/
-
-              //---Ejemplo de uso---// 
-            /*statement.executeUpdate("insert into usuarios(codigo_user,nombres,apellidos,fecha_nacimiento,identificacion,sexo,ciudad,email,contraseña,fecha_registro,compras,adopciones) values('2222','Jesus David','Lenis Rodriguez','2002-07-26','0000000','masculino','Barranquilla','jes@gmail.com','jlenis0000','2024-08-10','2','2')");*/
             
-            /* 
+             
+              //---Ejemplo de uso Insercion de datos---// 
+            statement.executeUpdate("insert into usuarios(codigo_user,nombres,apellidos,fecha_nacimiento,identificacion,sexo,ciudad,email,contraseña,fecha_registro,compras,adopciones) values('2222','Jesus David','Lenis Rodriguez','2002-07-26','24144142','M','Barranquilla','jes@gmail.com','jlenis0000','2024-08-10','2','2')");
+            
+            
             // Actualizar registros //
-            String updateQuery = "UPDATE usuarios SET nombres = 'Juan David', apellidos = 'Gómez', email = 'juan@misena.edu.co' WHERE codigo_user = '2222'";
+            String updateQuery = "UPDATE usuarios SET nombres = 'Juan Jesus', apellidos = 'Royero', identificacion = '7218723', email = 'juan@misena.edu.co' WHERE codigo_user = '1111'";
             statement.executeUpdate(updateQuery);
-            */
-
-            /* 
+            
+             
             // Eliminar registros //
-            String deleteQuery = "DELETE FROM usuarios WHERE codigo_user = '2222'";
+            String deleteQuery = "DELETE FROM usuarios WHERE codigo_user = '0000'";
             statement.executeUpdate(deleteQuery);
-            */
-
+            
+            
             // Ejecutar una consulta SQL para obtener todos los registros de la tabla 'usuarios' // 
             rs = statement.executeQuery("select * from usuarios");
 
